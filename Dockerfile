@@ -17,7 +17,7 @@ RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
     git clone https://github.com/koniu/recoll-webui.git &&\
     pip install epub gunicorn
 
-ADD start.sh /root/start.sh
+ADD start.sh /root/.recoll/start.sh
 ADD recoll.conf /root/.recoll/recoll.conf
 ADD gunicorn.conf /root/.recoll/gunicorn.conf
 
@@ -25,5 +25,5 @@ VOLUME /data
 VOLUME /root
 EXPOSE 8080
 
-RUN chmod +x /root/start.sh
-CMD ['/root/start.sh']
+RUN chmod +x /root/.recoll/start.sh
+CMD ['/root/.recoll/start.sh']
