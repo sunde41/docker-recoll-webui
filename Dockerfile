@@ -28,4 +28,5 @@ ADD guni.py /recoll-webui/
 VOLUME /homes
 EXPOSE 8080
 
+RUN [“chmod”, “+x”, "/root/start.sh”]
 CMD ["/root/start.sh"]
