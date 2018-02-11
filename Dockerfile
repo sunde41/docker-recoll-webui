@@ -2,8 +2,6 @@ FROM debian:jessie
 MAINTAINER sunde41
 
 ADD start.sh /root/
-ADD recoll.conf /root/.recoll/recoll.conf
-ADD gunicorn.conf /config/.recoll/gunicorn.conf
 
 RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
 	/etc/apt/sources.list.d/recoll.list &&\
@@ -21,6 +19,9 @@ RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
     git clone https://github.com/koniu/recoll-webui.git &&\
     pip install epub gunicorn &&\
     chmod +x /root/start.sh
+
+ADD recoll.conf /root/.recoll/recoll.conf
+ADD gunicorn.conf /root/.recoll/gunicorn.conf
 
 VOLUME /data
 EXPOSE 8080
