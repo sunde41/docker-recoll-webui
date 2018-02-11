@@ -12,8 +12,8 @@ RUN mkdir /data && mkdir -p /config/.recoll
 RUN git clone https://github.com/sunde41/recoll-webui.git
 RUN pip install epub gunicorn
 
-ADD recoll.conf /config/.recoll/
-ADD guni_config.py /config/.recoll/
+ADD recoll.conf /config/.recoll/recoll.conf
+ADD gunicorn.conf /config/.recoll/gunicorn.conf
 
 VOLUME /data
 VOLUME /config
