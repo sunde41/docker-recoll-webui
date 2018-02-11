@@ -18,7 +18,7 @@ RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
     apt-get autoremove && apt-get clean &&\
     mkdir /homes && mkdir -p /root/.recoll &&\
     git clone https://github.com/sunde41/recoll-webui.git &&\
-    chmod +x /root/start.sh && chmod +x /root/bgindex.sh
+    chmod +x /root/start.sh
 
 ADD recoll.conf /root/.recoll/recoll.conf
 
