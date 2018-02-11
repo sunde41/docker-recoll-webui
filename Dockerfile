@@ -19,7 +19,10 @@ RUN mkdir /homes && mkdir /root/.recoll
 
 RUN git clone https://github.com/sunde41/docker-recoll-webui.git
 
+RUN pip install epub gunicorn
+
 ADD recoll.conf /root/.recoll/recoll.conf
+
 ADD guni.py /recoll-webui/
 
 VOLUME /homes
