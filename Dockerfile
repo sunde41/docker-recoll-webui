@@ -7,8 +7,7 @@ RUN echo deb-src http://www.lesbonscomptes.com/recoll/debian/ unstable main >> \
 	/etc/apt/sources.list.d/recoll.list
 RUN apt-get update && \
     apt-get install -y --force-yes recoll python-recoll python python-pip git wv aspell aspell-en pdftk poppler-utils && \
-    apt-get clean
-    
+    apt-get autoremove && apt-get clean
 RUN mkdir /data && mkdir -p /config/.recoll	
 RUN git clone https://github.com/sunde41/recoll-webui.git
 RUN pip install epub gunicorn
