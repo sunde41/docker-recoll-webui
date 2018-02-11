@@ -15,7 +15,7 @@ RUN apt-get update && \
     
 RUN apt-get install -y --force-yes unzip xsltproc unrtf untex libimage-exiftool-perl antiword pstotext 
 
-RUN mkdir /homes && mkdir /root/.recoll
+RUN mkdir /root/.recoll
 
 RUN git clone https://github.com/koniu/recoll-webui.git
 
@@ -25,9 +25,7 @@ ADD recoll.conf /root/.recoll/recoll.conf
 
 ADD guni.py /recoll-webui/
 
-VOLUME /homes
+VOLUME /root
 EXPOSE 8080
 
-RUN chmod +x /root/start.sh
-
-CMD ["/root/start.sh"]
+RUN chmod+x /root/start.sh
