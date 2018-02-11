@@ -19,5 +19,3 @@ ADD guni_config.py /root/.recoll/
 
 VOLUME /data
 EXPOSE 8080
-
-CMD ["/usr/local/bin/gunicorn","-c","/root/.recoll/guni_config.py","/recoll-webui/guni:app"]
