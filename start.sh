@@ -1,3 +1,3 @@
 #!/bin/bash
 cd /recoll-webui/
-/usr/local/bin/gunicorn webui-standalone:app -a 0.0.0.0
+/usr/local/bin/gunicorn guni:app --bind='0.0.0.0:8080'
