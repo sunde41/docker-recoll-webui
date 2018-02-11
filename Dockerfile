@@ -1,8 +1,6 @@
 FROM debian:jessie
 MAINTAINER sunde41
 
-ADD start.sh /root/
-
 RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ unstable main > \
 	/etc/apt/sources.list.d/recoll.list
 
@@ -24,8 +22,11 @@ RUN pip install epub gunicorn
 ADD recoll.conf /root/.recoll/recoll.conf
 
 ADD guni.py /recoll-webui/
+ADD start.sh /recoll-webui/
 
 VOLUME /root
 EXPOSE 8080
 
-RUN chmod +x /root/start.sh
+RUN chmod +x /recoll-webui/start.sh
+
+CMD ["/recoll-webui/start.sh"]
