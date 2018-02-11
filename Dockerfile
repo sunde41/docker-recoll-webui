@@ -8,16 +8,17 @@ RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
     apt-get -qq update && \
     apt-get -qq --force-yes install \
         recoll python-recoll \
-        python python-pip git wv \
+        python python-pip git wv wget \
         aspell aspell-en \
         pdftk \
         poppler-utils && \
-    apt-get autoremove && apt-get clean &&\
-    mkdir /data && mkdir -p /root/.recoll &&\
-    git clone https://github.com/koniu/recoll-webui.git &&\
-    pip install epub gunicorn
+    apt-get autoremove && apt-get clean && \
+    mkdir /data && mkdir -p /root/.recoll && \
+    git clone https://github.com/koniu/recoll-webui.git && \
+    pip install epub gunicorn && \
+    cd /root && \
+    wget https://raw.githubusercontent.com/sunde41/docker-recoll-webui/master/start.sh
 
-ADD start.sh /root/.recoll/start.sh
 ADD recoll.conf /root/.recoll/recoll.conf
 ADD gunicorn.conf /root/.recoll/gunicorn.conf
 
@@ -25,5 +26,5 @@ VOLUME /data
 VOLUME /root
 EXPOSE 8080
 
-RUN chmod +x /root/.recoll/start.sh
-CMD ['/root/.recoll/start.sh']
+RUN chmod +x /root/start.sh
+CMD ['/root/start.sh']
