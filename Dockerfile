@@ -13,7 +13,7 @@ RUN apt-get update && \
     apt-get install -y --force-yes recoll python-recoll python python-pip git wv poppler-utils && \
     apt-get clean
     
-RUN apt-get install -y --force-yes unzip xsltproc unrtf untex libimage-exiftool-perl antiword pstotext 
+RUN apt-get install -y --force-yes aspell aspell-en pdftk 
 
 RUN mkdir /root/.recoll
 
@@ -28,4 +28,4 @@ ADD guni.py /recoll-webui/
 VOLUME /root
 EXPOSE 8080
 
-RUN chmod+x /root/start.sh
+RUN chmod +x /root/start.sh
