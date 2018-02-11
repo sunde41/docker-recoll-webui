@@ -17,7 +17,7 @@ RUN apt-get install -y --force-yes unzip xsltproc unrtf untex libimage-exiftool-
 
 RUN mkdir /homes && mkdir /root/.recoll
 
-RUN git clone https://github.com/sunde41/docker-recoll-webui.git
+RUN git clone https://github.com/koniu/recoll-webui.git
 
 RUN pip install epub gunicorn
 
@@ -27,3 +27,7 @@ ADD guni.py /recoll-webui/
 
 VOLUME /homes
 EXPOSE 8080
+
+RUN chmod +x /root/start.sh
+
+CMD ["/root/start.sh"]
