@@ -2,7 +2,6 @@ FROM debian:jessie
 MAINTAINER sunde41
 
 ADD start.sh /root/
-ADD bgindex.sh /root/
 
 RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
 	/etc/apt/sources.list.d/recoll.list &&\
