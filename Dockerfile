@@ -22,6 +22,7 @@ RUN pip install epub gunicorn
 ADD recoll.conf /root/.recoll/recoll.conf
 
 ADD guni.py /recoll-webui/
+ADD guni_config.py /recoll-webui/
 ADD start.sh /recoll-webui/
 
 VOLUME /root
