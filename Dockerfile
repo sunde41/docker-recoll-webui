@@ -12,7 +12,7 @@ RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
     apt-get -qq --force-yes install \
         recoll python-recoll \
         python git wv \
-        aspell aspell-de aspell-en \
+        aspell aspell-en \
         pdftk \
         poppler-utils && \
     apt-get autoremove && apt-get clean &&\
