@@ -9,7 +9,7 @@ RUN apt-get update && \
     apt-get install -y --force-yes recoll python-recoll python python-pip git wv aspell aspell-en pdftk poppler-utils && \
     apt-get clean
     
-RUN mkdir /data && mkdir /root/.recoll	
+RUN mkdir /data && mkdir -p /root/.recoll	
 RUN git clone https://github.com/koniu/recoll-webui.git
 RUN pip install epub gunicorn
 
