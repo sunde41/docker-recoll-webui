@@ -16,7 +16,7 @@ RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
         poppler-utils && \
     apt-get autoremove && apt-get clean &&\
     mkdir /homes && mkdir -p /root/.recoll &&\
-    git clone https://github.com/sunde41/recoll-webui.git &&\
+    git clone https://github.com/sunde41/docker-recoll-webui.git &&\
     pip install epub &&\
     pip install gunicorn &&\
     chmod +x /root/start.sh
