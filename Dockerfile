@@ -11,16 +11,19 @@ RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
     apt-get -qq update && \
     apt-get -qq --force-yes install \
         recoll python-recoll \
-        python git wv \
+        python python-pip git wv \
         aspell aspell-en \
         pdftk \
         poppler-utils && \
     apt-get autoremove && apt-get clean &&\
     mkdir /homes && mkdir -p /root/.recoll &&\
     git clone https://github.com/sunde41/recoll-webui.git &&\
+    pip install epub &&\
+    pip install gunicorn &&\
     chmod +x /root/start.sh
 
 ADD recoll.conf /root/.recoll/recoll.conf
+ADD guni.py /recoll-webui/
 
 VOLUME /homes
 EXPOSE 8080
