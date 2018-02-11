@@ -21,13 +21,13 @@ RUN pip install epub gunicorn
 
 ADD recoll.conf /root/.recoll/recoll.conf
 
-ADD guni.py /recoll-webui/
-ADD guni_config.py /recoll-webui/
-ADD start.sh /recoll-webui/
+ADD guni.py /root/.recoll/
+ADD guni_config.py /root/.recoll/
+ADD start.sh /root/.recoll/
 
 VOLUME /root
 EXPOSE 8080
 
-RUN chmod +x /recoll-webui/start.sh
+RUN chmod +x /root/.recoll/start.sh
 
-CMD ["/recoll-webui/start.sh"]
+CMD ["/root/.recoll/start.sh"]
