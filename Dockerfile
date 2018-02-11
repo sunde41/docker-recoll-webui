@@ -25,5 +25,3 @@ ADD gunicorn.conf /root/.recoll/gunicorn.conf
 
 VOLUME /data
 EXPOSE 8080
-
-CMD ["/root/start.sh"]
