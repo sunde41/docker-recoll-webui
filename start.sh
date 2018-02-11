@@ -1,3 +1,3 @@
 #!/bin/bash
 
-/usr/local/bin/gunicorn /recoll-webui/guni:app --bind='0.0.0.0:8080'
+/usr/local/bin/gunicorn -c /recoll-webui/guni_config.py /recoll-webui/guni:app
