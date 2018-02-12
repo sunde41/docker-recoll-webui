@@ -13,17 +13,15 @@ RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
         pdftk \
         poppler-utils && \
     apt-get autoremove && apt-get clean && \
-    mkdir /data && mkdir -p /root/.recoll && \
+    mkdir /data && mkdir -p /config/.recoll && \
     git clone https://github.com/koniu/recoll-webui.git && \
     pip install epub gunicorn && \
-    cd /root && \
+    cd /config && \
     wget https://raw.githubusercontent.com/sunde41/docker-recoll-webui/master/start.sh
 
-ADD recoll.conf /root/.recoll/recoll.conf
-ADD gunicorn.conf /root/.recoll/gunicorn.conf
+ADD recoll.conf /config/.recoll/recoll.conf
+ADD gunicorn.conf /config/.recoll/gunicorn.conf
 
 VOLUME /data
-VOLUME /root
+VOLUME /config
 EXPOSE 8080
-
-RUN chmod +x /root/start.sh
