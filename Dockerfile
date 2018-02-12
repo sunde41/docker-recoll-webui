@@ -27,4 +27,3 @@ VOLUME /root
 EXPOSE 8080
 
 RUN chmod +x /root/start.sh
-CMD ['/root/start.sh']
