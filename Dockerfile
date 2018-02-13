@@ -1,8 +1,6 @@
 FROM debian:jessie
 MAINTAINER sunde41
 
-VOLUME /config
-
 RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
 	/etc/apt/sources.list.d/recoll.list &&\
     echo deb-src http://www.lesbonscomptes.com/recoll/debian/ jessie main >> \
