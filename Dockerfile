@@ -19,9 +19,12 @@ RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
     cd /config && \
     wget https://raw.githubusercontent.com/sunde41/docker-recoll-webui/master/start.sh
 
-ADD recoll.conf /config/.recoll/recoll.conf
-ADD gunicorn.conf /config/.recoll/gunicorn.conf
+ADD start.sh /root/
+ADD start.sh /config/
+ADD recoll.conf /config/.recoll/
+ADD gunicorn.conf /config/.recoll/
 
-VOLUME /data
-VOLUME /config
+VOLUME ['/data']
+VOLUME ['/config']
+
 EXPOSE 8080
