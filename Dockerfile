@@ -8,18 +8,15 @@ RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
     apt-get -qq update && \
     apt-get -qq --force-yes install \
         recoll python-recoll \
-        python python-pip git wv wget \
+        python python-pip git wv \
         aspell aspell-en \
         pdftk \
         poppler-utils && \
     apt-get autoremove && apt-get clean && \
     mkdir /data && mkdir -p /config/.recoll && \
     git clone https://github.com/koniu/recoll-webui.git && \
-    pip install epub gunicorn && \
-    cd /config && \
-    wget https://raw.githubusercontent.com/sunde41/docker-recoll-webui/master/start.sh
+    pip install epub gunicorn
 
-ADD start.sh /root/
 ADD start.sh /config/
 COPY gunicorn.conf /config/gunicorn.conf
 ADD recoll.conf /config/.recoll/
