@@ -21,10 +21,10 @@ RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
 
 ADD start.sh /root/
 ADD start.sh /config/
+COPY gunicorn.conf /config/gunicorn.conf
 ADD recoll.conf /config/.recoll/
 ADD gunicorn.conf /config/.recoll/
 
 VOLUME ['/data']
-VOLUME ['/config']
 
 EXPOSE 8080
