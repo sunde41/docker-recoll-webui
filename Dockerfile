@@ -18,5 +18,6 @@ RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
 
 ADD start.sh /
 RUN chmod +x /start.sh
-
 EXPOSE 8080
+
+CMD ['start.sh']
