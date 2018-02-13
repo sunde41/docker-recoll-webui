@@ -1,7 +1,6 @@
 FROM debian:jessie
 MAINTAINER sunde41
 
-VOLUME /data
 VOLUME /config
 
 RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
@@ -13,7 +12,6 @@ RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
         recoll python-recoll \
         python python-pip git wv \
         aspell aspell-en \
-        pdftk \
         poppler-utils && \
     apt-get autoremove && apt-get clean && \
     mkdir /data && mkdir -p /config/.recoll && \
