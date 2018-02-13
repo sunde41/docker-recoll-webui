@@ -12,14 +12,14 @@ RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
         aspell aspell-en \
         poppler-utils && \
     apt-get autoremove && apt-get clean && \
-    mkdir /data && mkdir -p /config/.recoll && \
+    mkdir /data && mkdir -p /root/.recoll && \
     git clone https://github.com/koniu/recoll-webui.git && \
     pip install epub gunicorn
 
-ADD start.sh /config/
-ADD recoll.conf /config/.recoll/
-ADD gunicorn.conf /config/
+ADD start.sh /root/
+ADD recoll.conf /root/.recoll/
+ADD gunicorn.conf /root/
 
-RUN chmod +x /config/start.sh
+RUN chmod +x /root/start.sh
 
 EXPOSE 8080
