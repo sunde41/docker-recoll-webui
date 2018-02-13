@@ -1,6 +1,9 @@
 FROM debian:jessie
 MAINTAINER sunde41
 
+VOLUME /data
+VOLUME /config
+
 RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
 	/etc/apt/sources.list.d/recoll.list &&\
     echo deb-src http://www.lesbonscomptes.com/recoll/debian/ jessie main >> \
@@ -18,10 +21,9 @@ RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
     pip install epub gunicorn
 
 ADD start.sh /config/
-COPY gunicorn.conf /config/gunicorn.conf
 ADD recoll.conf /config/.recoll/
-ADD gunicorn.conf /config/.recoll/
+ADD gunicorn.conf /config/
 
-VOLUME ['/data']
+RUN chmod +x /config/start.sh
 
 EXPOSE 8080
