@@ -16,8 +16,11 @@ RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
     git clone https://github.com/koniu/recoll-webui.git && \
     pip install epub gunicorn
 
-ADD start.sh /
-RUN chmod +x /start.sh
 EXPOSE 8080
+
+RUN echo bind='"0.0.0.0:8080"' > /root/gunicorn.conf
+RUN cd /recoll-webui/
+
+CMD /usr/local/bin/gunicorn webui-wsgi:application -c /root/gunicorn.conf
 
 # CMD ['sh','/start.sh']
