@@ -20,4 +20,4 @@ ADD start.sh /
 RUN chmod +x /start.sh
 EXPOSE 8080
 
-CMD ['bash','/start.sh']
+CMD ['sh','/start.sh']
