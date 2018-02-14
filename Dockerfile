@@ -13,12 +13,11 @@ RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
         poppler-utils && \
     apt-get autoremove && apt-get clean && \
     mkdir /data && mkdir -p /root/.recoll && \
-    git clone https://github.com/koniu/recoll-webui.git && \
+    git clone https://github.com/dsheyp/recoll-webui.git && \
     pip install epub gunicorn
-
-ADD start.sh /
-RUN chmod +x /start.sh
 
 EXPOSE 8080
 
+ADD start.sh /
+RUN chmod +x /start.sh
 CMD '/start.sh'
