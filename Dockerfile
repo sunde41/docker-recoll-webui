@@ -1,6 +1,8 @@
 FROM debian:jessie
 MAINTAINER sunde41
 
+EXPOSE 8080
+
 RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
 	/etc/apt/sources.list.d/recoll.list &&\
     echo deb-src http://www.lesbonscomptes.com/recoll/debian/ jessie main >> \
@@ -16,11 +18,7 @@ RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
     git clone https://github.com/koniu/recoll-webui.git && \
     pip install epub gunicorn
 
-EXPOSE 8080
+CMD ['./start.sh']
 
-RUN echo bind='"0.0.0.0:8080"' > /root/gunicorn.conf
-RUN cd /recoll-webui/
-
-CMD /usr/local/bin/gunicorn webui-wsgi:application -c /root/gunicorn.conf
-
-# CMD ['sh','/start.sh']
+# RUN cd /recoll-webui/
+# RUN /usr/local/bin/gunicorn webui-wsgi:application --bind 0.0.0.0:8080 --keyfile /root/sunde41_net.key --certfile /root/sunde41_net.crt
