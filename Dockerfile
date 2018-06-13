@@ -8,7 +8,7 @@ RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ stretch main > \
     apt-get -qq update && \
     apt-get -qq --force-yes install \
         recoll python-recoll \
-        python python-pip git wv \
+        python python-pip git antiword wv unzip \
         aspell aspell-en \
         poppler-utils && \
     apt-get autoremove && apt-get clean && \
