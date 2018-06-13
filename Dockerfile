@@ -1,9 +1,9 @@
-FROM debian:jessie
+FROM debian:stretch
 MAINTAINER sunde41
 
-RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
+RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ stretch main > \
 	/etc/apt/sources.list.d/recoll.list &&\
-    echo deb-src http://www.lesbonscomptes.com/recoll/debian/ jessie main >> \
+    echo deb-src http://www.lesbonscomptes.com/recoll/debian/ stretch main >> \
 	/etc/apt/sources.list.d/recoll.list &&\
     apt-get -qq update && \
     apt-get -qq --force-yes install \
@@ -16,7 +16,7 @@ RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
     git clone https://github.com/Yetangitu/recoll-webui.git && \
     pip install epub gunicorn
 
-EXPOSE 8080
+EXPOSE 80
 
 ADD start.sh /
 RUN chmod +x /start.sh
