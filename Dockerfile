@@ -1,9 +1,9 @@
-FROM debian:stretch
+FROM debian:jessie
 MAINTAINER sunde41
 
-RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ stretch main > \
+RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
 	/etc/apt/sources.list.d/recoll.list &&\
-    echo deb-src http://www.lesbonscomptes.com/recoll/debian/ stretch main >> \
+    echo deb-src http://www.lesbonscomptes.com/recoll/debian/ jessie main >> \
 	/etc/apt/sources.list.d/recoll.list &&\
     apt-get -qq update && \
     apt-get -qq --force-yes install \
