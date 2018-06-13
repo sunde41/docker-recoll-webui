@@ -1,15 +1,14 @@
-FROM debian:jessie
+FROM debian:jessie-slim
 MAINTAINER sunde41
 
 RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
-	/etc/apt/sources.list.d/recoll.list &&\
+	/etc/apt/sources.list.d/recoll.list && \
     echo deb-src http://www.lesbonscomptes.com/recoll/debian/ jessie main >> \
-	/etc/apt/sources.list.d/recoll.list &&\
+	/etc/apt/sources.list.d/recoll.list && \
     apt-get -qq update && \
     apt-get -qq --force-yes install \
         recoll python-recoll \
-        python python-pip git antiword wv unzip \
-        aspell aspell-en \
+        python-pip git antiword wv unzip \
         poppler-utils && \
     apt-get autoremove && apt-get clean && \
     mkdir /data && mkdir -p /root/.recoll && \
