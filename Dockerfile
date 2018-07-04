@@ -12,7 +12,7 @@ RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
         poppler-utils && \
     apt-get autoremove && apt-get clean && \
     mkdir /data && mkdir -p /root/.recoll && \
-    git clone https://github.com/Yetangitu/recoll-webui.git && \
+    git clone https://github.com/sunde41/recoll-webui.git && \
     pip install epub gunicorn
 
 EXPOSE 80
