@@ -9,7 +9,7 @@ recoll with webui in a docker container
     https://raw.githubusercontent.com/dsheyp/docker-recoll-webui/master/recollindex.sh
 - change `CONTAINER_ID` and paths to your needs
 - settings for recoll are stored in `/root/.recoll/recoll.conf`
-- the path of what will be indexed is `/homes`
+- the path of what will be indexed is `/data`
 
 # links
 
