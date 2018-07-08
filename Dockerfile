@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:jessie-slim
 MAINTAINER sunde41
 
 RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
@@ -9,6 +9,8 @@ RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
     apt-get -qq --force-yes install \
         recoll python-recoll \
         python-pip git antiword wv unzip \
+	aspell aspell-en \
+	pdftk \
         poppler-utils && \
     apt-get autoremove && apt-get clean && \
     mkdir /data && mkdir -p /root/.recoll && \
