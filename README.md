@@ -1,8 +1,8 @@
 # docker-recoll-webui
 recoll with webui in a docker container
 
-- optimized for docker running on a synology diskstation
-- creates a python standalone recoll server inside a docker container listening on port 8080
+- optimized for docker running on a qnap nas
+- creates a python standalone recoll server inside a docker container listening on port 80
 - to start indexing run this command on your synology:
     `docker exec CONTAINER_ID recollindex`
 - to run the indexer as a time-based task on a synology nas, use the task scheduler to run this recollindex.sh script:
