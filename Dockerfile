@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:jessie-slim
 MAINTAINER sunde41
 
 RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
