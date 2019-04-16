@@ -12,12 +12,10 @@ recoll with webui in a docker container
 - the path of what will be indexed is `/data`
 
 # links
-
 - WebUI homepage: https://github.com/koniu/recoll-webui
 - Recoll homepage: http://www.lesbonscomptes.com/recoll
 
 # installation steps
-
 - in docker start the wizard to create a docker container from this image: mount `/homes` to `/homes` and mount `/homes/YOUR_USER_NAME` to `/root`, set up port mapping (defaults do also work)
 - complete the following steps before you run the container
 - download recoll.conf (https://raw.githubusercontent.com/dsheyp/docker-recoll-webui/master/recoll.conf) and place it in `/volume1/homes/YOUR_USER_NAME/.recoll/`
