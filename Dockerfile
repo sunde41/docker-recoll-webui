@@ -12,14 +12,14 @@ RUN echo deb-src https://www.lesbonscomptes.com/recoll/debian/ stretch main >> \
 
 RUN apt-get update && \
     apt-get install -y --allow-unauthenticated --force-yes recollcmd python3-recoll \
-    poppler-utils unzip mercurial python3 python3-pip && \
+    poppler-utils unzip mercurial python3-pip && \
     apt-get autoremove && apt-get clean
 
 RUN mkdir /data && mkdir -p /root/.recoll && \
     git clone https://@opensourceprojects.eu/git/p/recollwebui/code recollwebui-code && \
-    hg clone https://bitbucket.org/arthurdarcet/epub
-    WORKDIR epub
-    python3 setup.py install
+    hg clone https://bitbucket.org/arthurdarcet/epub && \
+    WORKDIR epub && \
+    python3 setup.py install && \
     pip3 install gunicorn
 
 EXPOSE 80
