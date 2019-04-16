@@ -18,7 +18,7 @@ RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
     hg clone https://bitbucket.org/arthurdarcet/epub
     cd epub
     python setup.py install
-    pip install epub gunicorn
+    pip install gunicorn
 
 EXPOSE 80
 
