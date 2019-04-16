@@ -1,19 +1,21 @@
-FROM debian:jessie-slim
+FROM debian:stretch
 MAINTAINER sunde41
 
-RUN echo deb http://www.lesbonscomptes.com/recoll/debian/ jessie main > \
-	/etc/apt/sources.list.d/recoll.list && \
-    echo deb-src http://www.lesbonscomptes.com/recoll/debian/ jessie main >> \
-	/etc/apt/sources.list.d/recoll.list && \
-    apt-get -qq update && \
-    apt-get -qq --force-yes install \
-        recoll python-recoll \
-        python-pip git antiword wv unzip mercurial \
-	aspell aspell-en \
-	pdftk \
-        poppler-utils && \
-    apt-get autoremove && apt-get clean && \
-    mkdir /data && mkdir -p /root/.recoll && \
+RUN apt-get update && \
+    apt-get install -y apt-transport-https git
+
+RUN echo deb https://www.lesbonscomptes.com/recoll/debian/ stretch main > \
+	/etc/apt/sources.list.d/recoll.list
+
+RUN echo deb-src https://www.lesbonscomptes.com/recoll/debian/ stretch main >> \
+	/etc/apt/sources.list.d/recoll.list
+
+RUN apt-get update && \
+    apt-get install -y --allow-unauthenticated --force-yes recollcmd python3-recoll python-recoll python \
+    wv poppler-utils git antiword wv unzip mercurial aspell aspell-en pdftk && \
+    apt-get autoremove && apt-get clean
+
+RUN mkdir /data && mkdir -p /root/.recoll && \
     git clone https://@opensourceprojects.eu/git/p/recollwebui/code recollwebui-code && \
     hg clone https://bitbucket.org/arthurdarcet/epub
     cd epub
