@@ -18,7 +18,7 @@ RUN apt-get update && \
 RUN mkdir /data && mkdir -p /root/.recoll && \
     git clone https://@opensourceprojects.eu/git/p/recollwebui/code recollwebui-code && \
     hg clone https://bitbucket.org/arthurdarcet/epub
-    cd epub
+    WORKDIR epub
     python3 setup.py install
     pip3 install gunicorn
 
