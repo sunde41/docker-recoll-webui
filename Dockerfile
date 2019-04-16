@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:stretch-slim
 MAINTAINER sunde41
 
 RUN apt-get update && \
@@ -12,7 +12,7 @@ RUN echo deb-src https://www.lesbonscomptes.com/recoll/debian/ stretch main >> \
 
 RUN apt-get update && \
     apt-get install -y --allow-unauthenticated --force-yes recollcmd python3-recoll \
-    poppler-utils unzip mercurial python3-pip && \
+    mercurial python3-pip && \
     apt-get autoremove && apt-get clean
 
 RUN mkdir /data && mkdir -p /root/.recoll && \
