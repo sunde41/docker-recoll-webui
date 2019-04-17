@@ -12,7 +12,7 @@ RUN echo deb-src https://www.lesbonscomptes.com/recoll/debian/ stretch main >> \
 
 RUN apt-get update && \
     apt-get install -y --allow-unauthenticated --force-yes recollcmd python3-recoll \
-    mercurial python3-pip && \
+    mercurial gunicorn && \
     apt-get autoremove && apt-get clean
 
 RUN mkdir /data && mkdir -p /root/.recoll && \
@@ -21,8 +21,7 @@ RUN mkdir /data && mkdir -p /root/.recoll && \
 
 WORKDIR /epub
     
-RUN python3 setup.py install && \
-    pip3 install gunicorn
+RUN python3 setup.py install
 
 EXPOSE 80
 
