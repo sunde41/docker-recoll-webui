@@ -12,12 +12,11 @@ RUN echo deb-src https://www.lesbonscomptes.com/recoll/debian/ stretch main >> \
 
 RUN apt-get update && \
     apt-get install -y --allow-unauthenticated --force-yes recollcmd python3-recoll \
-    python3-pip && \
+    gunicorn && \
     apt-get autoremove && apt-get clean
 
 RUN mkdir /data && mkdir -p /root/.recoll && \
-    git clone https://@opensourceprojects.eu/git/p/recollwebui/code recollwebui-code && \
-    pip3 install gunicorn
+    git clone https://@opensourceprojects.eu/git/p/recollwebui/code recollwebui
 
 EXPOSE 80
 
