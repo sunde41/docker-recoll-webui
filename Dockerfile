@@ -12,14 +12,16 @@ RUN echo deb-src https://www.lesbonscomptes.com/recoll/debian/ stretch main >> \
 
 RUN apt-get update && \
     apt-get install -y --allow-unauthenticated --force-yes recollcmd python3-recoll \
-    gunicorn && \
+    gunicorn3 && \
     apt-get autoremove && apt-get clean
 
 RUN mkdir /data && mkdir -p /root/.recoll && \
-    git clone https://@opensourceprojects.eu/git/p/recollwebui/code recollwebui
+    git clone https://framagit.org/medoc92/recollwebui.git
 
 EXPOSE 80
 
 ADD start.sh /
+ADD gunicorn.conf /root/
+ADD recoll.conf /root/.recoll/
 RUN chmod +x /start.sh
 CMD '/start.sh'
